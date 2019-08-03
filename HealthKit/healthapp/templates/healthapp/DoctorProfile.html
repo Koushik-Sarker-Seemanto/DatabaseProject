@@ -1,0 +1,30 @@
+{% extends 'healthapp/BaseDoctor.html' %}
+
+{% block schedule %}
+    <li class="">
+        {% comment %}<a href="#">{% endcomment %}
+        <a href="{% url 'healthapp:schedule_list' user.id %}">
+            <span class="glyphicon glyphicon-calender" aria-hidden="true"></span>&nbsp; Schedule
+        </a>
+    </li>
+    <li class="">
+        {% comment %}<a href="#">{% endcomment %}
+        <a href="{% url 'healthapp:schedule_add' user.id %}">
+            <span class="glyphicon glyphicon-calender" aria-hidden="true"></span>&nbsp; Add Schedule
+        </a>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <h1>Profile</h1>
+        <h2>{{ user.doctor_name }}</h2>
+        <h2>{{ user.doctor_workplace }}</h2>
+        <h2>{{ user.doctor_category }}</h2>
+        <h2>{{ user.doctor_email }}</h2>
+        <h2>{{ user.doctor_phone }}</h2>
+    </div>
+
+
+{% endblock %}

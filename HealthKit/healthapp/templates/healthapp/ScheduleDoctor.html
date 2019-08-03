@@ -1,0 +1,58 @@
+<!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+                <ul class="nav nav-pills" style="margin-bottom: 10px; ">
+                    <li role="presentation" class="active"><a href="{% url 'music:details' album.id %}">View All</a></li>
+                    <li role="presentation" class="active"><a {% comment %}href="{% url 'music:create_song' album.id %}"{% endcomment %}>Add New Song</a></li>
+                </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body" style="background-color: antiquewhite">
+
+                    <h3>All Songs</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Hospital name</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for schedule in user.schedule_set.all %}
+                            <tr>
+                                <td>{{ schedule.start_time }}</td>
+                                <td>
+                                    <a href="#">
+                                        <button type="button" class="btn btn-success btn-xs">
+                                            <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    {% comment %}<a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>{% endcomment %}
+                                    <span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span>
+                                </td>
+                                <td>
+                                    <form {% comment %}action="{% url 'music:delete_song' album.id song.id %}" method="post"{% endcomment %} style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="song_id" value="{{ song.id }}" />
+                                        <button type="submit" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>

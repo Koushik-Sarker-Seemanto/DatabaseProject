@@ -1,0 +1,32 @@
+{% extends 'healthapp/BaseDoctor.html' %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <h1> Schedule List:</h1>
+    </div>
+
+
+    {% if not object_list.all %}
+        <div class="container-fluid">
+            <h1>No Schedule Exist.</h1>
+        </div>
+    {% endif %}
+
+    {% for schedule in object_list %}
+
+        <div class="col-sm-6 col-lg-3 container-fluid" >
+            <div class="thumbnail" style="background-color: antiquewhite">
+
+                <div class="caption">
+                    <h2>Start Time: {{ schedule.start_time }}</h2>
+                    <h2>End Time: {{ schedule.end_time }}</h2>
+                    <h2>Place: {{ schedule.hospital_name }}</h2>
+                    <button type="submit" class="btn btn-primary btn-sm" >Reservation Info</button>
+                </div>
+            </div>
+        </div>
+        {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+    {% endfor %}
+
+{% endblock %}

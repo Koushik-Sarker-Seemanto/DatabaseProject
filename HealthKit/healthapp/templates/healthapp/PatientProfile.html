@@ -1,0 +1,15 @@
+{% extends 'healthapp/BasePatient.html' %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <h1>Profile</h1>
+        <h2>{{ user.patient_name }}</h2>
+        <h2>{{ user.patient_age }}</h2>
+        <h2>{{ user.patient_blood }}</h2>
+        <h2>{{ user.patient_email }}</h2>
+        <h2>{{ user.patient_phone }}</h2>
+    </div>
+
+
+{% endblock %}

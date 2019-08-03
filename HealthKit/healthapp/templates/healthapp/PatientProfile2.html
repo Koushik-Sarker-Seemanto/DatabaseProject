@@ -1,0 +1,41 @@
+
+{% extends 'healthapp/BasePatient.html' %}
+
+{% block body %}
+
+    <div class="row">
+      <div class="col-lg-3 col-xs-6">
+        <div class="profile-card" align="left">
+          <div class="image-container">
+            <img src="https://library.kissclipart.com/20180901/yce/kissclipart-employee-png-clipart-computer-icons-clip-art-66c2dd710bfc0a41.png" style="width:100%"alt="">
+              <h2 class="prof1">{{ user.patient_name }}</h2>
+          </div>
+          <div class="main_container">
+            <p>  <i class="fas fa-user info"></i>{{ user.patient_age }}</p>
+            <p> <i class="fas fa-venus-mars info1"></i>{{ user.patient_gender }}</p>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-lg-9 col-xs-6">
+        <div class="profile-card2" align="left">
+          <div class="main_container">
+            <h1 align="center" style="color:green" >Profile Information</h1>
+            <br>
+                      <!-- <p class="rcorners4">  <i class="fas fa-address-book info"></i>Category</p> -->
+                      <p class="rcorners5">  <i class="fas fa-phone-square info"></i>{{ user.patient_phone }}</p>
+                      <p class="rcorners4">  <i class="fas fa-envelope info1"></i>{{ user.patient_email }}</p>
+                      <p  class="rcorners5">  <i class="fas fa-map-marker-alt info"></i>{{ user.patient_area }}</p>
+                      <p  class="rcorners4">  <i class="fas fa-tint info1"></i>{{ user.patient_blood }}</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+{% endblock %}

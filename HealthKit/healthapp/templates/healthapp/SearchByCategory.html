@@ -1,0 +1,30 @@
+{% extends 'healthapp/BasePatient.html' %}
+
+{% block body %}
+
+<div class="justify-content-center align-items-center">
+    <h1>
+        Category Search result:
+    </h1>
+<br>
+
+</div>
+
+    {% for doctor in object_list %}
+        <div class="col-sm-6 col-lg-3 "  >
+            <div class="thumbnail" style="background-color: antiquewhite">
+                <a href="{% url 'healthapp:doctor_profile' doctor.id %}">
+                    <img src="http://www.holyspirithospital.org/images/doctor/holy-spirit-dr.png" class="img-responsive" style="width: auto; height: auto">
+                </a>
+                <div class="caption">
+                    <h2>{{ doctor.doctor_name }}</h2>
+                    <h4>{{ doctor.doctor_degree }}</h4>
+
+                    <a href="{% url 'healthapp:doctor_profile_patient' doctor.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+    {% endfor %}
+
+{% endblock %}
